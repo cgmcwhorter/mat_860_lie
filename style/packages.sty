@@ -1,0 +1,210 @@
+% -------------------
+% Content
+% -------------------
+\usepackage{
+	amsmath,			% General Math
+  	amssymb,			% Math Symbols
+  	amsthm,			% Theorem Environments
+	%chngcntr,		% For Counterwithin
+	enumerate,		% Custom Enumerates
+	float,				% Force Image Placement
+	graphicx,			% Include Images
+  	microtype,       		% Improved Typesetting
+	multicol,			% Multiple Columns
+	multirow,			% Multiple Rows
+	relsize,			% Resize Environments
+  	%thmtools,        	% Custom Theorems
+	%thm-restate,		% Restateable Theorems  
+	%totcount,		% Define Counters
+}
+
+
+% -------------------
+% Fonts
+% -------------------
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+
+%\usepackage{sectsty}
+%\allsectionsfont{\sffamily}
+
+%\usepackage[T1]{fontenc}
+%\usepackage{charter}
+
+
+% -------------------
+% Colors
+% -------------------
+\usepackage[usenames,dvipsnames]{xcolor}
+\definecolor{SUOrange}{RGB}{212,69,0}
+
+
+% -------------------
+% Hyperref
+% -------------------
+\usepackage{hyperref}
+\usepackage[
+	hyperref 	= true,      		% links to online documents
+  	backend  	= bibtex,    	% use bibtex instead of biber
+  	sorting  	= nyt,       		% sorts by (name, year, title)
+  	style  	= alphabetic 	% citations look like [Har77]
+]{biblatex}
+\addbibresource{mat830_bib.bib}
+
+%\usepackage[all]{xy}
+\hypersetup{
+	colorlinks 	= true,
+	citecolor 	= SUOrange,
+  	linkcolor  	= SUOrange,
+  	urlcolor   	= SUOrange
+}
+\PassOptionsToPackage{hyphens}{url}
+\renewcommand\UrlFont{\normalfont}
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
+
+
+% -------------------
+% Tikz
+% -------------------
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+
+% -------------------
+% Header/Footer
+% -------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+%\setlength{\parskip}{1em}
+\headheight=14pt
+\footskip=10pt
+
+\fancyhead[LE]{\thepage}
+\fancyhead[LO]{}
+\fancyhead[CE]{}
+\fancyhead[CO]{}
+\fancyhead[RE]{}
+\fancyhead[RO]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[LE]{}
+\fancyfoot[LO]{}
+\fancyfoot[CE]{}
+\fancyfoot[CO]{}
+\fancyfoot[RE]{}
+\fancyfoot[RO]{}
+\renewcommand{\footrulewidth}{0pt}
+
+
+\fancypagestyle{blank}{
+%Headers
+\fancyhead[L]{}
+\fancyhead[C]{}
+\fancyhead[R]{}
+\renewcommand{\headrulewidth}{0pt}
+%Footers
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{}
+\renewcommand{\footrulewidth}{0pt}
+}
+
+\fancypagestyle{pages}{
+%Headers
+\fancyhead[L]{}
+\fancyhead[C]{}
+\fancyhead[R]{}
+\renewcommand{\headrulewidth}{0pt}
+%Footers
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage \,of \pageref*{LastPage}}
+\renewcommand{\footrulewidth}{0.4pt}
+}
+
+
+% -------------------
+% Theorems
+% -------------------
+\numberwithin{equation}{section}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{cor}{Corollary}[section]
+
+\theoremstyle{definition}
+\newtheorem{ex}{Example}[section]
+\newtheorem{nex}{Non-Example}[section]
+\newtheorem*{dfn}{Definition}
+\newtheorem*{conject}{Conjecture}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+
+
+% -------------------
+% Include PDF
+% -------------------
+% LOAD AFTER UNIVERSITY COLORS TO AVOID CONFLICT
+%\usepackage{pdfpages} 
+% Infludepdf to make all, pages=-, for one pages={1} or pages={4-9} or combination, insert empty pages with {}, pages= last-1 in reverse order, default pages=1
+% pagecommand={\thispagestyle{empty}}
+%\usepackage{bbding}
+
+
+% -------------------
+% Title Pages
+% -------------------
+\newcommand{\mytitle}[6]{%
+\pagestyle{empty}
+\begin{flushright}
+\begin{tabular}{ll}
+\raisebox{-.5\height}{\includegraphics[scale=0.25]{images/syracuse_seal.jpg}} & {\color{SUOrange}\Huge Syracuse University } \\
+\end{tabular}
+\end{flushright}
+\vspace{2in}
+
+{\color{SUOrange} \Huge \noindent MAT #1: \\[0.2cm] #2 \\[0.2cm] 
+\rule{0.65\textwidth}{0.05cm} \\[0.2cm]}
+
+{\color{SUOrange} \large \noindent Professor: #3 \\ Notes By: #4}
+
+\vfill
+\begin{center} {\huge \color{SUOrange} #5} \end{center}
+
+
+\newpage
+\vspace*{\fill} 
+\begin{quote} 
+\centering 
+Last Updated: #6 
+\end{quote}
+\vspace*{\fill}
+\newpage
+\thispagestyle{blank}
+\tableofcontents
+\newpage
+\pagestyle{fancy}
+\setcounter{section}{-1}
+\setcounter{page}{1}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
